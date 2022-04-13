@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Route, useNavigate, Routes } from "react-router-dom";
 import Dashboard from "../Pages/Dashboard"
+import ProductDetails from "../Pages/Dashboard/ProductDetails";
 
 const PrivateRoute = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const PrivateRoute = () => {
   return (
     <Routes>
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
     </Routes>
   );
 };

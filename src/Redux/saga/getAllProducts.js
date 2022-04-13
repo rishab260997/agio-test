@@ -5,7 +5,7 @@ import axios from "axios";
 
 function* getAllProducts(action) {
   try {
-    let response = yield call(axios.post, "/products", action.payload);
+    let response = yield call(axios.get, "/products", action.payload);
     console.log(response)
     yield put(getAllProductsSuccess({ response: response.data }));
   } catch (error) {
