@@ -8,12 +8,14 @@ function* login(action) {
       console.log(action.payload)
     let response = yield call(axios.post, '/users', action.payload);
     if (response) {
-      yield put(loginSuccess({ response: response }));
+      yield put(loginSuccess({ response: response.data }));
+      localStorage.setItem('token',response.data)
     } else {
       yield put(loginError({ error: "Data not fetched" }));
     }
   } catch (error) {
     yield put(loginError({ error: "Data not fetched" }));
+    localStorage.setItem('token',"DEMO_TOKEN_DUE_TO_ERROR")
   }
 }
 

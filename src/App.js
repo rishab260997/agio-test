@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./Redux/store";
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://fakestoreapi.com'
+axios.defaults.baseURL = "https://fakestoreapi.com";
 
 function App() {
   return (

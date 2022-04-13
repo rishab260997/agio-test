@@ -7,7 +7,7 @@ function* signup(action) {
   try {
     let response = yield call(axios.post, '/users', action.payload);
     if (response) {
-      yield put(signupSuccess({ response: response }));
+      yield put(signupSuccess({ response: response.data }));
     } else {
       yield put(signupError({ error: "Data not fetched" }));
     }
