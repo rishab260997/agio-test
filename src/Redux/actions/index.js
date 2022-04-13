@@ -16,3 +16,7 @@ export const getAllProductsError = createAction(constant.GET_ALL_PRODUCTS_ERROR)
 export const getSingleProductRequest = createAction(constant.GET_SINGLE_PRODUCT_REQUEST);
 export const getSingleProductSuccess = createAction(constant.GET_SINGLE_PRODUCT_SUCCESS);
 export const getSingleProductError = createAction(constant.GET_SINGLE_PRODUCT_ERROR);
+
+export const addToCartRequest = createAction(constant.ADD_TO_CART_REQUEST);
+export const addToCartSuccess = createAction(constant.ADD_TO_CART_SUCCESS);
+export const addToCartError = createAction(constant.ADD_TO_CART_ERROR);
