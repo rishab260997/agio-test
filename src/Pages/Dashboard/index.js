@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../Components/common/Loader";
 import Product from "../../Components/Dashboard/Product";
 import { getAllProductsRequest } from "../../Redux/actions";
 
@@ -9,6 +10,9 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(getAllProductsRequest());
   }, []);
+  if(state.isLoading){
+    return <Loader />
+  }
   return (
     <div>
       <div className="grid grid-cols-3 gap-4">

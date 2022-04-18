@@ -1,13 +1,31 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { loginRequest } from "../../Redux/actions";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState({
     username: "",
     password: "",
   });
+
+  const { login: state } = useSelector((state) => state);
+  console.log(state);
+
+  useEffect(() => {
+    if (state.isSuccess || state.isError) {
+      navigate("/dashboard");
+    }
+  }, [state]);
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, []);
 
   const handleChange = (key, value) => {
     setUserDetails({ ...userDetails, [key]: value });
@@ -15,8 +33,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginRequest(userDetails))
-
+    dispatch(loginRequest(userDetails));
   };
   return (
     <div className="flex h-screen bg-gradient-to-b from-gray-800 to-gray-400">

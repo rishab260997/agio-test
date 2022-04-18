@@ -4,6 +4,7 @@ import { loginSaga } from "./login";
 import { getAllProductsSaga } from "./getAllProducts";
 import { getSingleProductsSaga } from "./getSingleProduct";
 import { addToCartSaga } from "./addToCart";
+import { getUserCartSaga } from "./getUserCart";
 
 export default function* rootSaga() {
   yield all([
@@ -11,6 +12,7 @@ export default function* rootSaga() {
     fork(loginSaga),
     fork(getAllProductsSaga),
     fork(getSingleProductsSaga),
-    fork(addToCartSaga)
+    fork(addToCartSaga),
+    fork(getUserCartSaga),
   ]);
 }

@@ -20,3 +20,7 @@ export const getSingleProductError = createAction(constant.GET_SINGLE_PRODUCT_ER
 export const addToCartRequest = createAction(constant.ADD_TO_CART_REQUEST);
 export const addToCartSuccess = createAction(constant.ADD_TO_CART_SUCCESS);
 export const addToCartError = createAction(constant.ADD_TO_CART_ERROR);
+
+export const getUserCartRequest = createAction(constant.GET_USER_CART_REQUEST);
+export const getUserCartSuccess = createAction(constant.GET_USER_CART_SUCCESS);
+export const getUserCartError = createAction(constant.GET_USER_CART_ERROR);
